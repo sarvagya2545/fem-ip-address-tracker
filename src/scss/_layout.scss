@@ -30,5 +30,17 @@ form {
     .map-box {
         height: 100%;
         width: 100%;
+        position: relative;
+    }
+
+    .loader {
+        position: absolute;
+        z-index: 10000;
+        inset: 0;
+        top: 20%;
+        background-color: rgba($color: #000000, $alpha: 0.9);
+
+        display: grid;
+        place-items: center;
     }
 }
