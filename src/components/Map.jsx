@@ -1,13 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-import useMap from '../hooks/useMap';
+import React from 'react';
 
 const Map = () => {
-    const { locateToCurrentLocation, changePosition } = useMap('ipMap');
-
-    useEffect(() => {
-        locateToCurrentLocation();
-    }, []);
-
     return (
         <div className="map-container">
             <div className="map-box" id="ipMap"></div>

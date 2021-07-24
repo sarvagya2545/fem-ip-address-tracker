@@ -15,8 +15,10 @@ const useMap = (mapid) => {
     const [position, setPosition] = useState([0,0]);
 
     useEffect(() => {
-        if(!mapRef.current) 
+        if(!mapRef.current)
             createMap();
+        else 
+            mapRef.current.panTo(position).setZoom(16);
 
         if(!markerRef.current)
             createMarker(position);

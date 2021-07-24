@@ -7,6 +7,7 @@ dotenv.config();
 export default defineConfig({
   plugins: [reactRefresh()],
   define: {
-    "process.env.MAPBOX_ACCESS_TOKEN": JSON.stringify(process.env.REACT_APP_MAPBOX_ACCESS_TOKEN)
+    "process.env.MAPBOX_ACCESS_TOKEN": JSON.stringify(process.env.REACT_APP_MAPBOX_ACCESS_TOKEN),
+    "process.env.API_KEY": JSON.stringify(process.env.REACT_APP_IPIFY_API_KEY)
   }
 })
