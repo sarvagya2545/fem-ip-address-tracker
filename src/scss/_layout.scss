@@ -20,9 +20,15 @@ form {
     max-width: 90%;
 }
 
-.map-box {
+.map-container {
     // assign the width of the flex-item to be 100vh & the container also to be 100vh.
     // then shrink the flex-item to take max available space
     flex-basis: 100vh;
     flex-shrink: 1;
+    z-index: 1;
+    
+    .map-box {
+        height: 100%;
+        width: 100%;
+    }
 }
