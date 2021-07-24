@@ -1,12 +1,18 @@
 import React, { useEffect, useRef } from 'react';
 import L from 'leaflet';
 
+// config
+const initialView = [0,0];
+const initialZoom = 1;
+const iconSize = 7;
+const iconLength = 4 * iconSize;
+const iconHeight = 5 * iconSize;
+
 const Map = () => {
     const mapRef = useRef(null);
     const markerRef = useRef(null);
 
     useEffect(() => {
-        console.log('useeffect called');
         if (!mapRef.current) 
             createMap();
 
@@ -15,14 +21,13 @@ const Map = () => {
     }, []);
 
     const createMap = () => {
-        const myMap = L.map('ipMap').setView([0, 0], 1);
-        let accessToken = process.env.MAPBOX_ACCESS_TOKEN;
+        const myMap = L.map('ipMap').setView(initialView, initialZoom);
         let url = `https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}`;
         const config = {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             id: 'mapbox/streets-v11',
-            accessToken: accessToken
-        }
+            accessToken: process.env.MAPBOX_ACCESS_TOKEN
+        };
 
         const tiles = L.tileLayer(url, config);
         tiles.addTo(myMap);
@@ -34,9 +39,9 @@ const Map = () => {
         const markerIcon = L.icon({
             iconUrl: '/images/icon-location.svg',
             shadowUrl: '',
-            iconSize: [20,25],
-            iconAnchor: [10, 25],
-            popupAnchor: [0, -12.5]
+            iconSize: [iconLength,iconHeight],
+            iconAnchor: [iconLength/2, iconHeight],
+            popupAnchor: [0, -iconHeight/2]
         });
 
 
