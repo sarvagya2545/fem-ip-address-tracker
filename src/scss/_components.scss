@@ -1,0 +1,93 @@
+@use '_abstracts.scss' as *;
+
+.bg {
+    background-image: url('/images/pattern-bg.png');
+    background-position: center;
+    color: #fff;
+
+    padding: 5rem;
+    padding-bottom: 10rem;
+
+    @media screen and (max-width: 700px) {
+        padding: 3rem;
+        padding-bottom: 6rem;
+    }
+
+    h1 {
+        font-size: 2.6rem;
+        font-weight: 500;
+    }
+
+    input[type="text"] {
+        appearance: none;
+        width: 100%;
+        font-size: 1.6rem;
+        padding: 1.5rem;
+        border: none;
+        outline: none;
+
+        cursor: pointer;
+    }
+
+    button {
+        border: none;
+        background-color: $very-dark-grey;
+        padding: 0 2rem;
+        cursor: pointer;
+    }
+}
+
+
+
+.details {
+    width: 70%;
+
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 3rem;
+    box-shadow: 0px 5px 10px rgba($color: #000000, $alpha: 0.1);
+
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+
+    @media screen and (max-width: 700px) {
+        top: 20%;
+        padding: 2rem;
+        width: 80%;
+        gap: 1rem;
+    }
+
+    @media screen and (max-width: 900px) {
+        justify-items: center;
+    }
+
+    &__item {
+        text-align: left;
+        max-width: 20rem;
+        flex-basis: 25%;
+        flex-shrink: 1;
+        flex-grow: 1;
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+
+        p {
+            color: $dark-grey;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        @media screen and (max-width: 900px) {
+            text-align: center;
+        }
+    }
+}

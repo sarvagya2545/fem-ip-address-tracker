@@ -1,0 +1,28 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    text-align: center;
+
+    height: 100vh;
+    position: relative;
+}
+
+form {
+    display: inline-flex;
+    justify-content: center;
+    align-items: stretch;
+
+    margin: 2rem auto;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 40rem;
+    max-width: 90%;
+}
+
+.map-box {
+    // assign the width of the flex-item to be 100vh & the container also to be 100vh.
+    // then shrink the flex-item to take max available space
+    flex-basis: 100vh;
+    flex-shrink: 1;
+}
