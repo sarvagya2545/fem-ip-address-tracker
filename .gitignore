@@ -6,3 +6,4 @@ dist-ssr
 design/
 README-template.md
 *.env
+output.json

@@ -18,7 +18,7 @@ const useMap = (mapid) => {
         if(!mapRef.current)
             createMap();
         else 
-            mapRef.current.panTo(position).setZoom(16);
+            mapRef.current.setView(position, 16);
 
         if(!markerRef.current)
             createMarker(position);
