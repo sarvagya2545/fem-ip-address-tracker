@@ -16,9 +16,23 @@ const Map = () => {
         if (!mapRef.current) 
             createMap();
 
-        if(mapRef.current && !markerRef.current)
-            createMarker();
+        setLocation();
     }, []);
+
+    const setLocation = () => {
+        mapRef.current.locate({setView: true, maxZoom: 16});
+        mapRef.current.on('locationfound', onLocationFound);
+        mapRef.current.on('locationerror', onLocationError);
+    }
+
+    const onLocationFound = (e) => {
+        if(mapRef.current && !markerRef.current)
+            createMarker(e.latlng);
+    }
+
+    const onLocationError = (e) => {
+        alert(e.message);
+    }
 
     const createMap = () => {
         const myMap = L.map('ipMap').setView(initialView, initialZoom);
@@ -35,7 +49,7 @@ const Map = () => {
         mapRef.current = myMap;
     }
 
-    const createMarker = () => {
+    const createMarker = (position) => {
         const markerIcon = L.icon({
             iconUrl: '/images/icon-location.svg',
             shadowUrl: '',
@@ -45,9 +59,10 @@ const Map = () => {
         });
 
 
-        const marker = L.marker([51.5, -0.09], { icon: markerIcon })
+        const marker = L.marker(position, { icon: markerIcon })
             .addTo(mapRef.current)
             .bindPopup('I am somewhere');
+        
         markerRef.current = marker;
     }
 
