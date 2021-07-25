@@ -34,8 +34,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Coming soon!](#links)
-- Live Site URL: [Coming soon!](#links)
+- Live site URL: [https://ip-address-tracker-sarvagya2545.netlify.app/](https://ip-address-tracker-sarvagya2545.netlify.app/)
 
 ## My process
 
