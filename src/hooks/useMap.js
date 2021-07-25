@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
+import img from '/images/icon-location.svg';
 
 // config
 const initialView = [0,0];
@@ -29,7 +30,7 @@ const useMap = (mapid) => {
 
     const createMarker = (position) => {
         const markerIcon = L.icon({
-            iconUrl: '/images/icon-location.svg',
+            iconUrl: img,
             shadowUrl: '',
             iconSize: [iconLength,iconHeight],
             iconAnchor: [iconLength/2, iconHeight],
