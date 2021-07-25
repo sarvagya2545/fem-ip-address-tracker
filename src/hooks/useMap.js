@@ -38,8 +38,7 @@ const useMap = (mapid) => {
 
 
         const marker = L.marker(position, { icon: markerIcon })
-            .addTo(mapRef.current)
-            .bindPopup('I am somewhere');
+            .addTo(mapRef.current);
         
         markerRef.current = marker;
     }
